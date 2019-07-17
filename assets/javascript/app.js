@@ -11,13 +11,13 @@ var myQuestions= [
         answer: "Gaelic and English"
     },
     { question: "What is the capitol of Scotland?",
-        choices: [
+        choices2: [
             "Miami", 
             "Glasglow",
             "Edinburgh",
             "London"
         ],
-        answer: ["Edinburgh"]
+        answer: "Edinburgh"
     },
     { question: "Which of the following areas are considered part of Scotland?",
         choices: [
@@ -26,7 +26,7 @@ var myQuestions= [
             "Islands",
             "All Choices"
         ], 
-        answer: ["All Choices"]
+        answer: "All Choices"
     },
     { question: "What is the official animal of Scotland?",
         choices: [
@@ -35,7 +35,7 @@ var myQuestions= [
             "Hare",
             "Squirrel"
         ], 
-        answer: ["Unicorn"]
+        answer: "Unicorn"
     },
     { question: "Of the 790 islands in Scotland, how many are inhabited?",
         choices: [
@@ -44,7 +44,7 @@ var myQuestions= [
             "612",
             "760"
         ],
-        answer: ["130"]          
+        answer: "130"         
     },
     { question: "Scotland's famous Loch Ness is home to which creature?",
         choices: [
@@ -53,7 +53,7 @@ var myQuestions= [
             "James, the Goldfish", 
             "Nessie, the Loch Ness Monster"
         ],
-        answer: ["Nessie, the Loch Ness Monster"]
+        answer: "Nessie, the Loch Ness Monster"
     },
     { question: "What is the flower of Scotland?",
         choices: [
@@ -62,7 +62,7 @@ var myQuestions= [
             "Daisy",
             "Bluebells"
         ],
-        answer: ["Thistle"] 
+        answer: "Thistle"
     },
     { question: "Scotland has the highest proportion of red heads in the world. True or False?",
         choices: [
@@ -72,13 +72,8 @@ var myQuestions= [
         answer: "True"
 }];
 
-// My attempt to click button to start timer - not working. tie to CreateQuiz? 
-// $('#startButton').click(function() {
-//     Timer();
-// });
-$('#startButton').on("click", Timer);
 
-//     document.getElementById("myTimer").innerHTML = minutes + ":" + seconds)
+$('#startButton').on("click", Timer);
 
 // Countdown Timer Start -->
 function startTimer(duration) {
@@ -96,67 +91,89 @@ function startTimer(duration) {
             timer = duration;
         }
     }, 1000);
-}
+};
 function Timer () {
     var twoMinutes = 60 * 2
         display = document.querySelector('.myTimer');
     startTimer (twoMinutes);
 };
 
-// Timer(); 
-// Calling Timer fuction to start countdown. Unsure how to get it from looping/reseting to 2 mins?
+// Countdown Timer End
 
-// Countdown Timer End 
-
-
-
-//Function to Create Questions 
-// Unsure how to get text onto page? Have tried html, text, and append...
-// Not sure how to narrow it down to only the question. When I try to add myQuestions.question - error message. 
-
-
-createQuestion()
-function createQuestion () {
+createQuestion();
+function createQuestion() {
     for(var i=0; i < myQuestions.length; i++) {
     var questionList = (myQuestions[i].question);
+    
     console.log(questionList);
-   $("#questionContainer").text(questionList);
-  
-    }
-}
+    $("#questionContainer").append(questionList);
+    
+}};
 
- //Function to give Questions Answers with Radio Buttons
- // Questions/Confusion: Again, not sure how to narrow it down from Question to only Choices array - 
-        //choices is undefined when by its self and with myQuestions. in front of it
+//This is supposed to format questions into separate lines. 
+// Quiz() ---> would include in the createQuestion function
+// function Quiz() {
+//     var quests = createQuestion.split(',');
+//     var res = quests.join(" <br> ");
+//     return res;    
+// };
 
-//  CreateAnswerChoices(choices[0])
-// function CreateAnswerChoices (Answer) {
-//     for (var i = 0; i < choices.length; i++){
-//         var answerList = (choices[i].answer);
-//         console.log("does this work?", answerList)
-//         <input type="radio" name="q1" value="answerList"/>
-//     }
-//     var response = 
-//     //should equal checked radio button - unsure how to notate? 
+// This only gives me a list of my ANSWERS and not CHOICES. Unsure of how to get Choices - see function below. 
+createAnswer();
+function createAnswer() {
+    var length =myQuestions.length;
+    for(var i=0; i < length; i++) {
+        for(var key in myQuestions[i])
+        { var answerList = (myQuestions[i][key])
+        }
+        console.log(answerList);
+}};
 
-// }
 
-// // Function CreateQuiz (){
+// Gives error msg. of choices being undefined? 
+// function createChoices() {
+//     for(var i=0; i < myQuestions.question.choices.length; i++) {
+//     var choicesList = (myQuestions.question[i].choices);
+//     console.log(choicesList);
+//     $("#questionContainer").append(choicesList)
+// }};
+// createChoices ();
+
+//Function to give Questions Answers with Radio Buttons ---> would include in function createChoices.
+    //<input type="radio" name="choices" value="multChoiceList"> test<br />
+
+//Would use createQuiz function in the on click event that starts the timer. 
+// function createQuiz () {
 //     createQuestion
-//     CreateAnswerChoices;
+//     CreateChoices;
+//     hideResults
+// };
+
+// hides button when page loads. 
+// $("#DoneButton").hide();
+
+//Function hideResults () {
 //     $("#Results").hide();
+//     $("#DoneButton").show();
+//     $("#paButton").hide()
 // }
 
-// Need to create a Submit/Done button. If clicked, or time runs out, the quiz is hidden, and results show. 
+//Function showResults () {
+//     $("#Results").show();
+// //     $("#DoneButton").hide();
+// //     $("#paButton").show()
+// // }
+// }
 
-// ---> calling score function to complete 
-    // needs to be a more global if statement that toggles between 
-    // if questions and answers are showing, then results hidden
-    // if results showing, hide questions/answers divs
+// Both of the following scenarios should be included in an if statement:
+    //Once timer is complete = hide quizContainer div/timer div/DoneButton, and show Results div/paButton. 
+    // If Done button clicked, hide quizContainer div/timer div/DoneButton, and show Results div/paButton.. 
+        //would need a click event to trigger. 
+        //would need to reference Score function.
 
-var correct = 0;
-var incorrect = 0;
-var unanswered = 0;
+// var correct = 0;
+// var incorrect = 0;
+// var unanswered = 0;
 
 // Function Score () {
   // if(response === myQuestion[i].answer){ 
@@ -172,14 +189,14 @@ var unanswered = 0;
 // };
 
 
-// Reset Function - should refresh page to the orginal home screen. 
-// Question - would you need to reset the variables listed below, or just complete a refresh? 
-// Would like to execute reset function when "play again?" button is pressed. 
+// Reset Function - should go to orginal home screen. 
+// Would like to execute reset function when "play again?" button with a click event. 
 
 // function clear () {
 //     var correct = 0;
 //     var incorrect = 0;
 //     var unanswered = 0;
+// unsure if radio buttons need to reset as well?
 // }
 
 

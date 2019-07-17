@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <head>
     <title>HW5 Trivia Game!</title>
-    
-    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple&display=swap" rel="stylesheet">
 </head>
 <body> 
     <div class="container">
         <!-- Row 1 Start -->
          <div class="row">
-            <div class="col-md-12">
+            <div id="title" class="col-md-12">
                 <h1>Scotland Trivia Game!</h1>
             </div>
         </div>
@@ -29,26 +28,26 @@
                 <div class="col-md-8 col-xs-12 col-sm-6">
                     <div id=Quiz></div>    
                 </div>
-            </div>   
-
+            </div>  
 
          <!-- Row 2 End -->
          <div class="row">
             <div class="col-md-8 col-xs-12 col-sm-6">
-                <div id=questionContainer>
-                    
+                <div id="questionContainer">
+
+                    <input type="radio" name="q1" value="answerList"> test<br />
                 </div>    
             </div>
          </div>   
-   
-        <!-- May need different div to call at end -->
         <div class="row">
                 <div class="col-md-8 col-xs-12 col-sm-6">
+                    <div><button id = DoneButton type="button" class="btn btn-info"> Done! </button>   </div>
                     <div id=Results> 
-                        <h3>Correct Answers: <span id=CorrectNum></span> </h3>
-                        <h3>Incorrect Answers: <span id=IncorrectNum></span> </h3>
-                        <h3>Unanswered Questions: <span id=UnansweredNum></span> </h3>
+                        <h3><span id=CorrectNum></span> </h3>
+                        <h3> <span id=IncorrectNum></span> </h3>
+                        <h3><span id=UnansweredNum></span> </h3>
                     </div>    
+                    <div><button id = paButton type="button" class="btn btn-info"> Play Again? </button>    </div>
                 </div>
             </div>
         

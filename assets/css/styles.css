@@ -1,3 +1,12 @@
+
 body {
     background-image: url("https://www.highlandtitles.com/wp-content/uploads/2018/09/Clan-map.png");
+    background-size: 400px 400px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    font-family: 'Homemade Apple', cursive;
+  }
+
+  h1, #title {
+    font-family: 'Homemade Apple', cursive;
   }
